@@ -6,5 +6,5 @@ You can run "anchor deploy" after cloning the repository.
 
 ### Future improvements:
 
-1. Randomization is weak. It needs be better.
+1. Randomization is weak. It needs to be better.
 2. Program needs to be tested on devnet with a well written frontend by using phantom wallet.
