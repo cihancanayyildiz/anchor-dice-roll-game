@@ -41,11 +41,14 @@ pub mod anchor_dice_roll_game {
             }
         }
         let clock: Clock = Clock::get().unwrap();
+
+        // todo: Seed for randomization needs to be improved.
         let dice_result: i32 = ((clock.unix_timestamp % 6) + 1).try_into().unwrap();
 
         // win
         if num_vec.contains(&dice_result) {
             dice_roll.game_state = format!("You won! Dice result: {}", dice_result);
+            //todo: This needs to be tested with frontend and phantom wallet.
             **dice_roll.to_account_info().try_borrow_mut_lamports()? -= dice_roll.bet_amount;
             **ctx.accounts.user.try_borrow_mut_lamports()? += 2 * dice_roll.bet_amount;
         } else {
